@@ -1,8 +1,11 @@
-class Person
+require './decorator_class'
+
+class Person < Nameable
   attr_accessor :name, :age
   attr_reader :id
 
-  def initialize(name, age = 'unknown', parent_permission: true)
+  def initialize(age, name = 'unknown', parent_permission: true)
+    super()
     @id = Random.rand(1...1000)
     @name = name
     @age = age
@@ -13,6 +16,10 @@ class Person
     @age >= 18 || @parent_permission
   end
 
+  def correct_name
+    @name
+  end
+
   private
 
   def of_age?
@@ -20,6 +27,11 @@ class Person
   end
 end
 
-p person1 = Person.new('sam', 19, false)
-p person1.of_age?
-p person1.can_use_services?
+person = Person.new(22, 'maximilianus  ')
+puts person.correct_name
+capitalized_person = CapitalizeDecorator.new(person)
+puts capitalized_person.correct_name
+capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
+puts capitalized_trimmed_person.correct_name
+
+puts person.correct_name
