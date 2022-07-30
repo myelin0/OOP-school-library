@@ -1,8 +1,8 @@
 require './decorator_class'
 
 class Person < Nameable
-  attr_accessor :name, :age
-  attr_reader :id, :rentals, :parent_permission
+  attr_accessor :name, :age, :rentals
+  attr_reader :id, :parent_permission
 
   def initialize(age, name = 'unknown', parent_permission: true)
     super()
