@@ -7,13 +7,13 @@ require './teacher_class'
 
 class App
   def list_all_books(books)
-    puts 'Sorry no books available at the moment' if books.empty?
+    puts 'No books available at the moment' if books.empty?
 
     books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
   end
 
   def list_all_people(people)
-    puts 'Sorry no people available at the moment' if people.empty?
+    puts 'No people available at the moment' if people.empty?
 
     people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
   end
@@ -29,7 +29,7 @@ class App
       books << book
       puts 'Book created successfully'
     else
-      puts 'Must enter title and author to create book'
+      puts 'Please enter title and author to create book'
     end
   end
 
