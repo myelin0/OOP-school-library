@@ -10,7 +10,6 @@ class BookModule
   def list_all_books
     puts 'No books available at the moment' if books.empty?
     @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
-    end
   end
 
   def create_book
