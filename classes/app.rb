@@ -1,17 +1,14 @@
-require_relative 'classes/person_module'
-require_relative 'classes/rental_module'
-require_relative 'classes/books_module'
+require_relative 'person_module'
+require_relative 'rental_module'
+require_relative 'books_module'
 
 class App
   attr_accessor :rentals, :books, :people
 
   def initialize
-    @people = []
-    @rentals = []
-    @books = []
-    @rentals = RentalModule.new({ rentals: @rentals, people: @people, books: @books })
-    @people = PersonModule.new(@people)
-    @books = BookModule.new(@books)
+    @books = BookModule.new
+    @people = PersonModule.new
+    @rentals = RentalModule.new(@books.books, @people.persons)
   end
 
   def menu_display
