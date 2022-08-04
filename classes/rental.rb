@@ -15,4 +15,4 @@ class Rental
       'person' => @person
     }
   end
-end # rubocop:todo Layout/EndOfLine
+end
